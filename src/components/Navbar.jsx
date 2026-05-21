@@ -19,8 +19,7 @@ const Navbar = () => {
 
   const { data: session } = authClient.useSession();
   const user = session?.user;
-
-  console.log(user);
+  // console.log({user})
 
   return (
     <div className="navbar sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-lg px-4 lg:px-8 shadow-sm">

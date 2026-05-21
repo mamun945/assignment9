@@ -1,4 +1,5 @@
 "use client"
+
 import Image from 'next/image';
 import { ChevronRight, PawPrint, Heart, Shield, Clock} from 'lucide-react';
 import { useState } from 'react';
