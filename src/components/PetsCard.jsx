@@ -99,11 +99,14 @@ const PetsCard = ({ petdata }) => {
           </Button>
           </Link>
 
-          <Button
+           <Link href={`/allpets/${_id}`}>
+             <Button
             className="flex-1 bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold"
           >
             Adopt Now
           </Button>
+          </Link>
+          
 
         </div>
       </div>

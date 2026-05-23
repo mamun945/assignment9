@@ -44,28 +44,16 @@ const PetDetails = ({ datas }) => {
   } = datas;
 
   // ADD THIS WHOLE useEffect
-  useEffect(() => {
     const checkRequest = async () => {
-      if (!user?.email || !_id) return;
 
-      try {
         const res = await fetch(
           `http://localhost:5001/adoptioninfo/check?userEmail=${user.email}&id=${_id}`
         );
 
         const data = await res.json();
-
-        if (data.exists) {
-          setAlreadyRequested(true);
-          setSubmitted(true);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    checkRequest();
-  }, [user, _id]);
+     return data;
+    }
+console.log(checkRequest, 'form petDtails theke');
 
   const onSubmit = async (e) => {
     e.preventDefault();

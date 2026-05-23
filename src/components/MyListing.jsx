@@ -10,6 +10,8 @@ import {
   CheckCircle,
   Package,
 } from "lucide-react";
+import RequestModal from "./RequestModal";
+import DeleteModal from "./DeleteModal";
 
 const MyListing = ({ petsInfo }) => {
   const totalListings = petsInfo.length;
@@ -19,7 +21,7 @@ const MyListing = ({ petsInfo }) => {
        ).length;
 
   const adoptedPets = petsInfo.filter(
-    (pet) => pet.status === "adopted"
+    (pet) => pet.status === "Adopted"
   ).length;
 
   return (
@@ -89,7 +91,7 @@ const MyListing = ({ petsInfo }) => {
             {/* Status Badge */}
             <div
                 className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold shadow-md ${
-                petInfo.status === "available"
+                petInfo.status === "Available"
                     ? "bg-green-500 text-white"
                     : "bg-blue-500 text-white"
                 }`}
@@ -127,10 +129,7 @@ const MyListing = ({ petsInfo }) => {
             </Link>
 
             {/* Request */}
-            <button className="btn btn-sm w-full bg-yellow-500 hover:bg-yellow-600 text-white border-none">
-                <ClipboardList size={16} />
-                Request
-            </button>
+            <RequestModal petInfoId={petInfo._id} petName={petInfo.petName}></RequestModal>
 
             {/* Edit */}
             <Link href={`/allpets/${petInfo._id}/edit/${petInfo._id}`}>
@@ -141,10 +140,7 @@ const MyListing = ({ petsInfo }) => {
             </Link>
 
             {/* Delete */}
-            <button className="btn btn-sm w-full bg-red-500 hover:bg-red-600 text-white border-none">
-                <Trash2 size={16} />
-                Delete
-            </button>
+            <DeleteModal petInfoId={petInfo._id}></DeleteModal>
             </div>
             </div>
           </Card>
