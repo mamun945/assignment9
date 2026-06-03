@@ -46,7 +46,7 @@ const PetDetails = ({ datas }) => {
  useEffect(()=>{
  if(user){
    fetch(
-          `http://localhost:5001/adoptioninfoCheck/check?userEmail=${user?.email}&id=${_id}`
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/adoptioninfoCheck/check?userEmail=${user?.email}&id=${_id}`
         ).then(res=> res.json()).then(data => setSubmitted(data.exists))
 
  }
@@ -79,7 +79,7 @@ const PetDetails = ({ datas }) => {
     const {data: tokenData} = await authClient.token();
 
     try {
-      const res = await fetch("http://localhost:5001/adoptioninfo", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adoptioninfo`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

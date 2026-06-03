@@ -12,7 +12,7 @@ const RequestModal = ({ petInfoId }) => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5001/adoptioninfo/${petInfoId}`
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/adoptioninfo/${petInfoId}`
         );
 
         const data = await res.json();
@@ -35,7 +35,7 @@ const RequestModal = ({ petInfoId }) => {
       status: "approved",
     }));
 
-    await fetch(`http://localhost:5001/adoptioninfo/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adoptioninfo/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const RequestModal = ({ petInfoId }) => {
       body: JSON.stringify({ status: "approved" }),
     });
 
-    await fetch(`http://localhost:5001/petsinfo/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/petsinfo/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const RequestModal = ({ petInfoId }) => {
       status: "rejected",
     }));
 
-    await fetch(`http://localhost:5001/adoptioninfo/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adoptioninfo/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

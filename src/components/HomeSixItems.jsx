@@ -2,7 +2,7 @@ import React from 'react'
 import PetsCard from './PetsCard';
 
 const HomeSixItems = async() => {
-    const res = await fetch('http://localhost:5001/petsinfosix')
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/petsinfosix`)
     const petsDatas = await res.json();
     // console.log(data, 'form home')
   return (

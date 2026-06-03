@@ -15,7 +15,7 @@ const PetsFilterSearch = () => {
     useEffect(() => {
         const fetchPets = async () => {
             const res = await fetch(
-                `http://localhost:5001/petssearchfilter?species=${species}&search=${searchQuery}`
+                `${process.env.NEXT_PUBLIC_SERVER_URL}/petssearchfilter?species=${species}&search=${searchQuery}`
             );
 
             const data = await res.json();

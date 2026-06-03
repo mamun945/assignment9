@@ -5,7 +5,7 @@ import {AlertDialog, Button, Modal} from "@heroui/react";
 const DeleteModal = ({petInfoId, petName}) => {
     const handleDelete = async (petInfoId) => {
     const {data: tokenData} = await authClient.token();
-  await fetch(`http://localhost:5001/petsinfo/${petInfoId}`, {
+  await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/petsinfo/${petInfoId}`, {
     method: "DELETE",
     headers:{
       "content-type":"application/json",

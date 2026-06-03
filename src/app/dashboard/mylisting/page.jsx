@@ -11,7 +11,7 @@ const user = session?.user;
 const {token}= await auth.api.getToken({
     headers: await headers()
   })
-const res = await fetch(`http://localhost:5001/pets/${user?.id}`,{
+const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/pets/${user?.id}`,{
     headers:{
       authorization:`Bearer ${token}`
     }

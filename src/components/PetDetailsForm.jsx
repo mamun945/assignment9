@@ -36,7 +36,7 @@ const PetDetailsForm = async({datas}) => {
   // ADD THIS
 
    const res = await fetch(
-          `http://localhost:5001/adoptioninfo/check?userEmail=${user.email}&id=${_id}`
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/adoptioninfo/check?userEmail=${user.email}&id=${_id}`
         );
 
     const data = await res.json();
@@ -62,7 +62,7 @@ const PetDetailsForm = async({datas}) => {
         adoptionInfo.id = _id;
         adoptionInfo.today = new Date().toISOString().split("T")[0];
   
-          const res = await fetch("http://localhost:5001/adoptioninfo", {
+          const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adoptioninfo`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

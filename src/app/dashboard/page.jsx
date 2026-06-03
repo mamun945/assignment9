@@ -1,7 +1,7 @@
 import MyRequest from "@/components/MyRequest";
 
 const MyRequestPage = async() => {
-  const res = await fetch('http://localhost:5001/adoptioninfo')
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adoptioninfo`)
   const petsAdoptionData = await res.json()
   console.log(petsAdoptionData);
   return (

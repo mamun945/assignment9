@@ -17,7 +17,7 @@ const MyRequest = ({ petsAdoptionData = [] }) => {
 
   const handleDelete = async (id) => {
     const res = await fetch(
-      `http://localhost:5001/adoptioninfo/${id}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/adoptioninfo/${id}`,
       {
         method: "DELETE",
       }
