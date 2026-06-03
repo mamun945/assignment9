@@ -41,3 +41,26 @@ Helps people rehome pets when they can no longer take care of them.
 10. 🌐 Community Animal Welfare Platform
 
 Builds a community where people help animals and promote responsible adoption.
+
+###Live URL
+
+
+###Features (at least 5 bullet points)
+🐶 Users can add and list pets with detailed information for adoption
+🔍 Browse and view available pets with full profiles and descriptions
+📩 Users can send adoption requests to pet owners
+✅ Pet owners can accept or reject adoption requests
+📊 “My Requests” section to track all sent and received adoption requests
+🤝 Secure and controlled adoption process with owner approval system
+🏠 Helps rehome pets and connect adopters with pet owners easily
+
+###NPM Packages Used
+1.heroui
+2.mongodb
+3.better-auth
+4.gravity-ui
+5.lucid
+6.express
+7.cros
+8.jwt
+
