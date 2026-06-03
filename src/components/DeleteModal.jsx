@@ -1,10 +1,16 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import {AlertDialog, Button, Modal} from "@heroui/react";
 
 const DeleteModal = ({petInfoId, petName}) => {
     const handleDelete = async (petInfoId) => {
+    const {data: tokenData} = await authClient.token();
   await fetch(`http://localhost:5001/petsinfo/${petInfoId}`, {
     method: "DELETE",
+    headers:{
+      "content-type":"application/json",
+      authorization: `Bearer ${tokenData?.token}`
+    }
   });
 
   window.location.reload(); // optional

@@ -8,8 +8,15 @@ const session = await auth.api.getSession({
     headers: await headers() // you need to pass the headers object.
 })
 const user = session?.user;
-
-const res = await fetch(`http://localhost:5001/pets/${user?.id}`)
+const {token}= await auth.api.getToken({
+    headers: await headers()
+  })
+const res = await fetch(`http://localhost:5001/pets/${user?.id}`,{
+    headers:{
+      authorization:`Bearer ${token}`
+    }
+  }
+)
 const petsInfo = await res.json()
 
   

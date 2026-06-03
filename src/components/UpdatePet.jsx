@@ -32,6 +32,7 @@ const UpdatePet = ({datas}) => {
     status
   } = datas;
 
+  console.log(datas, "update page theke")
    const { data: session } = authClient.useSession();
    const user = session?.user;
    
@@ -39,12 +40,14 @@ const UpdatePet = ({datas}) => {
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
       const petInfo = Object.fromEntries(formData.entries())
-      console.log(petInfo, 'from petInfo');
+      // console.log(petInfo, 'from petInfo');
+       const {data:tokenData} = await authClient.token();
 
        const res = await fetch(`http://localhost:5001/petsinfo/${_id}`,{
           method:'PATCH',
           headers:{
-              'content-type':'application/json'
+              'content-type':'application/json',
+              authorization: `Bearer ${tokenData?.token}`
           },
           body: JSON.stringify(petInfo)
          })
@@ -52,7 +55,7 @@ const UpdatePet = ({datas}) => {
          console.log(data, 'form update page')
         if(data){
           toast.success('data update successfully!')
-          redirect('/allpets')
+          redirect('/dashboard/mylisting')
         }
         if(!data){
           toast.error('somthing went wrong')

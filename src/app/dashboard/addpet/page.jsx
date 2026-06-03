@@ -25,11 +25,14 @@ const AddPetPage = () => {
    const petInfo = Object.fromEntries(formData.entries())
     petInfo.status = 'Available'
     petInfo.userId = user?.id;
+   
+  const {data:tokenData} = await authClient.token()
 
    const res = await fetch('http://localhost:5001/petsinfo',{
     method:'POST',
     headers:{
-        'content-type':'application/json'
+        'content-type':'application/json',
+        authorization:`Bearer ${tokenData?.token}`
     },
     body: JSON.stringify(petInfo)
    })
@@ -82,15 +85,39 @@ const AddPetPage = () => {
               <Select.Popover>
                 <ListBox>
 
-                  <ListBox.Item id="tiger" textValue="Animal">
-                    Animal
-                    <ListBox.ItemIndicator />
-                  </ListBox.Item>
-                  <ListBox.Item id="fish" textValue="Fish">
-                    Fish
-                    <ListBox.ItemIndicator />
-                  </ListBox.Item>
-                </ListBox>
+                <ListBox.Item id="dog" textValue="Dog">
+                  Dog
+                  <ListBox.ItemIndicator />
+                </ListBox.Item>
+
+                <ListBox.Item id="cat" textValue="Cat">
+                  Cat
+                  <ListBox.ItemIndicator />
+                </ListBox.Item>
+
+                <ListBox.Item id="bird" textValue="Bird">
+                  Bird
+                  <ListBox.ItemIndicator />
+                </ListBox.Item>
+
+                <ListBox.Item id="fish" textValue="Fish">
+                  Fish
+                  <ListBox.ItemIndicator />
+                </ListBox.Item>
+                <ListBox.Item id="tiger" textValue="Tiger">
+                  Tiger
+                  <ListBox.ItemIndicator />
+                </ListBox.Item>
+                 <ListBox.Item id="deer" textValue="Deer">
+                  Deer
+                  <ListBox.ItemIndicator />
+                </ListBox.Item>
+                 <ListBox.Item id="lion" textValue="Lion">
+                  Lion
+                  <ListBox.ItemIndicator />
+                </ListBox.Item>
+
+              </ListBox>
               </Select.Popover>
             </Select>
           </div>

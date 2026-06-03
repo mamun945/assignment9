@@ -8,9 +8,9 @@ const Footer = () => {
         {/* Contact Information */}
         <div>
           <h2 className="text-lg font-semibold mb-4">Contact Information</h2>
-          <p className="text-sm">Email: support@example.com</p>
-          <p className="text-sm">Phone: +880 1234 567890</p>
-          <p className="text-sm">Address: Nator, Rajshahi, Bangladesh</p>
+          <p className="text-sm">Email:almamunab2001@gmail.com</p>
+          <p className="text-sm">Phone: +8801785972741</p>
+          <p className="text-sm">Address: tarash, sirajgonj, Bangladesh</p>
         </div>
 
         {/* Social Links */}

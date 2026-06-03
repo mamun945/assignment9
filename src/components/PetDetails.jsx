@@ -43,17 +43,18 @@ const PetDetails = ({ datas }) => {
     status,
   } = datas;
 
+ useEffect(()=>{
+ if(user){
+   fetch(
+          `http://localhost:5001/adoptioninfoCheck/check?userEmail=${user?.email}&id=${_id}`
+        ).then(res=> res.json()).then(data => setSubmitted(data.exists))
+
+ }
+ },[user, _id])
+
   // ADD THIS WHOLE useEffect
-    const checkRequest = async () => {
-
-        const res = await fetch(
-          `http://localhost:5001/adoptioninfo/check?userEmail=${user.email}&id=${_id}`
-        );
-
-        const data = await res.json();
-     return data;
-    }
-console.log(checkRequest, 'form petDtails theke');
+    
+// console.log(checkRequest, 'form petDtails theke');
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -75,11 +76,14 @@ console.log(checkRequest, 'form petDtails theke');
     adoptionInfo.id = _id;
     adoptionInfo.today = new Date().toISOString().split("T")[0];
 
+    const {data: tokenData} = await authClient.token();
+
     try {
       const res = await fetch("http://localhost:5001/adoptioninfo", {
         method: "POST",
         headers: {
           "content-type": "application/json",
+          authorization:`Bearer ${tokenData?.token}`
         },
         body: JSON.stringify(adoptionInfo),
       });
@@ -214,7 +218,7 @@ console.log(checkRequest, 'form petDtails theke');
                   Your adoption request has been sent successfully.
                 </p>
 
-                <Link href="/my-requests">
+                <Link href="/dashboard">
                   <Button className="bg-green-500 hover:bg-green-600 text-white rounded-2xl px-8 py-6 text-lg">
                     View My Requests
                   </Button>

@@ -143,17 +143,6 @@ const Navbar = () => {
                 </p>
 
               </div>
-
-              {/* Profile */}
-              <li>
-                <Link
-                  href="/profile"
-                  className="rounded-xl hover:bg-emerald-50 hover:text-emerald-600"
-                >
-                  👤 Profile
-                </Link>
-              </li>
-
               {/* Dashboard */}
               <li>
                 <Link

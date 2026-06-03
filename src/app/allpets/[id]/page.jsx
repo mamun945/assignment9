@@ -1,10 +1,18 @@
 
 import PetDetails from "@/components/PetDetails";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 const PetDetailsPage = async ({ params }) => {
   const { id } = await params;
-  const res = await fetch(`http://localhost:5001/petsinfo/${id}`, {
-    cache: "no-store",
+  const {token}= await auth.api.getToken({
+    headers: await headers()
+  })
+
+  const res = await fetch(`http://localhost:5001/petsinfo/${id}`,{
+    headers:{
+      authorization:`Bearer ${token}`
+    }
   });
 
   const datas = await res.json()
