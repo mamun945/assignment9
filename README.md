@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+###.Project Name
+PetNest
 
-## Getting Started
+###Purpose
+1. 🏠 Pet Adoption Platform
 
-First, run the development server:
+It allows users to easily adopt pets that are available for rehoming.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. 🐶 Pet Listing System
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pet owners can add and list their pets for adoption with full details.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. 🔍 Pet Discovery Feature
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Users can browse and view different pets to find one they want to adopt.
 
-## Learn More
+4. 📩 Adoption Request System
 
-To learn more about Next.js, take a look at the following resources:
+Interested users can send adoption requests to pet owners.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. ✅ Owner Approval System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Pet owners can accept or reject adoption requests based on their preference.
 
-## Deploy on Vercel
+6. 📊 Request Management System
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Both users and owners can track the status of adoption requests.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+7. 📁 “My Requests” Section
+
+Users can view all their sent and received adoption requests in one place.
+
+8. 🤝 Safe Adoption Process
+
+Ensures trust and safety by allowing owner verification before adoption.
+
+9. 🐕 Pet Rehoming Solution
+
+Helps people rehome pets when they can no longer take care of them.
+
+10. 🌐 Community Animal Welfare Platform
+
+Builds a community where people help animals and promote responsible adoption.
