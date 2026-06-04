@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Button, Modal } from "@heroui/react";
 import { ClipboardList, Inbox } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -10,6 +11,7 @@ const RequestModal = ({ petInfoId }) => {
   // ---------------- FETCH DATA ----------------
   useEffect(() => {
     const fetchData = async () => {
+      
       try {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_SERVER_URL}/adoptioninfo/${petInfoId}`
@@ -29,6 +31,7 @@ const RequestModal = ({ petInfoId }) => {
 
   // ---------------- APPROVE ----------------
   const handleApprove = async (id) => {
+    const {data:tokenData} = await authClient.token();
     // instant UI update
     setAdoptionInfo((prev) => ({
       ...prev,
@@ -47,6 +50,7 @@ const RequestModal = ({ petInfoId }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        authorization:`Bearer ${tokenData?.token}`
       },
       body: JSON.stringify({ status: "Adopted" }),
     });
