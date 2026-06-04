@@ -1,7 +1,7 @@
 ###.Project Name
 PetNest
 
-###Purpose
+<!-- ###Purpose
 1. 🏠 Pet Adoption Platform
 
 It allows users to easily adopt pets that are available for rehoming.
@@ -62,5 +62,5 @@ Builds a community where people help animals and promote responsible adoption.
 5.lucid
 6.express
 7.cros
-8.jwt
+8.jwt -->
 
